@@ -1,0 +1,5 @@
+{
+    "cities":[
+        {"name":"Colombo"},{"name":"Kandy"},{"name":"Galle"},{"name":"Jaffna"},{"name":"Matale"},{"name":"Negombo"},{"name":"Gampaha"},{"name":"Kalutara"},{"name":"Matara"},{"name":"Ampara"},{"name":"Batticaloa"},{"name":"Dambulla"},{"name":"Anuradhapura"},{"name":"Ratnapura"},{"name":"Badulla"},{"name":"Puttalam"},{"name":"Battaramulla"}
+    ]
+}

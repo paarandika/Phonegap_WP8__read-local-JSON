@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--http://bitsflip.blogspot.com/-->
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone-no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1,width=device-width, height=device-height ">
+    <title>My app</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.2.0.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.2.0.min.js"></script>
+    <script src="js/mustache.js"></script>
+    <script id="tmpl" type="text/template">
+        {{#cities}}
+            <li>{{name}}</li>
+        {{/cities}}
+    </script>
+    <script>
+        $(document).ready(function () {
+            $.ajax('data.json', {
+
+                dataType: 'json', isLocal: true, success: function (data) {
+                    var tmpl = $('#tmpl').html();
+                    var out = '<ul data-role="listview" data-inset="true" id="ul1">'
+                    out = out + Mustache.to_html(tmpl, data) + "</ul>";
+                    $("#list").html(out);
+                    $('#list').trigger("create");
+                    }, error: function (x, y, z) { alert(y + " " + z); }
+                    });//ajax call to read the file "data.json"
+      });
+    </script>
+
+</head>
+<body>
+    <div data-role="page" id="pageone">
+        <div data-role="main" class="ui-content" id="list">
+        </div>
+    </div>
+
+</body>
+</html>
